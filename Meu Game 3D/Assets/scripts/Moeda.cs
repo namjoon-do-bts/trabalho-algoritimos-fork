@@ -12,6 +12,7 @@ public class moeda : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            FindObjectOfType<GameManage>().SubtrairMoedas(valor:1);
             Destroy(gameObject);
         }
     }
