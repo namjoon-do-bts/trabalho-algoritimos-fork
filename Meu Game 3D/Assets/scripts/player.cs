@@ -21,7 +21,7 @@ public class player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "chao");
+        if (collision.gameObject.tag == "chao")
         {
             chao = true;
         }

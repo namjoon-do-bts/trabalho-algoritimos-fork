@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class moeda : MonoBehaviour
@@ -12,7 +13,7 @@ public class moeda : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            FindObjectOfType<GameManage>().SubtrairMoedas(valor:1);
+            FindObjectOfType<gamemanage>().SubtrairMoedas(1);
             Destroy(gameObject);
         }
     }

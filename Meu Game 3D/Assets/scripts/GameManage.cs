@@ -8,10 +8,15 @@ public class gamemanage : MonoBehaviour
     public int moedas;
 
     public TMP_Text hud, msgVitoria;
+    public AudioClip clipmoeda, clipvitoria;
+
+    private AudioSource sourse;
     
     void Start()
     {
-        moedas = FindObjectsByType<moeda>().Length;
+        moedas = FindObjectsOfType<moeda>().Length;
+
+        TryGetComponent(out sourse);
     }
 
     public void AtualizarHud()
@@ -23,21 +28,14 @@ public class gamemanage : MonoBehaviour
     {
         moedas -= valor;
         AtualizarHud();
+        sourse.PlayOneShot(clipmoeda);
         if (moedas <= 0)
         {
             msgVitoria.text = "Parabéns";
+            sourse.PlayOneShot(clipvitoria);
+            sourse.Stop();
         }     
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 
