@@ -12,10 +12,13 @@ public class player : MonoBehaviour
     public bool chao = false;
 
     private Rigidbody rb;
+
+    private AudioSource _source;
     // Start is called before the first frame update
     void Start()
     {
       TryGetComponent(out rb);
+      TryGetComponent(out _source);
       Debug.Log(message: "START");
     }
 
@@ -40,6 +43,7 @@ if(Input.GetKeyDown(KeyCode.Space) && chao)
 {
     rb.AddForce(Vector3.up * + forcePulo,ForceMode.Impulse);
     chao = false;
+    _source.Play();
 }
 
 

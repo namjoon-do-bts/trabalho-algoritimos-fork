@@ -11,16 +11,17 @@ public class moeda : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
             FindObjectOfType<gamemanage>().SubtrairMoedas(1);
             Destroy(gameObject);
+            
         }
     }
 
     void Update()
     {
-        transform.Rotate(eulers: Vector3.forward * velocidadeGiro * Time.deltaTime);
+        transform.Rotate(eulers: Vector3.up * velocidadeGiro * Time.deltaTime,relativeTo:Space.World);
     }
     
 }

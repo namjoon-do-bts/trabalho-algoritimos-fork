@@ -17,23 +17,22 @@ public class gamemanage : MonoBehaviour
         moedas = FindObjectsOfType<moeda>().Length;
 
         TryGetComponent(out sourse);
-    }
-
-    public void AtualizarHud()
-    {
         hud.text = $"Moedas restantes: {moedas}";
     }
 
+
     public void SubtrairMoedas(int valor)
     {
-        moedas -= valor;
-        AtualizarHud();
+        moedas = moedas - valor;
+        hud.text = $"Moedas restantes: {moedas}";
         sourse.PlayOneShot(clipmoeda);
+        
         if (moedas <= 0)
         {
             msgVitoria.text = "Parabéns";
-            sourse.PlayOneShot(clipvitoria);
             sourse.Stop();
+            sourse.PlayOneShot(clipvitoria);
+            
         }     
     }
 }
